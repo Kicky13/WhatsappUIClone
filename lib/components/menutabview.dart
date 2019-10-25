@@ -9,7 +9,7 @@ class MenuTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TabBarView(
-      children: <Widget>[CardTab(), MemberList(), EventList(), Calendar()],
+      children: <Widget>[CardTab(), Members(), EventList(), Calendar()],
     );
   }
 }
