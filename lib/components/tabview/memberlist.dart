@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wa_clone/models/members.dart';
+import 'package:wa_clone/pages/profile.dart';
 import 'package:flutter_reorderable_list/flutter_reorderable_list.dart';
 
 class Members extends StatelessWidget {
@@ -135,7 +136,22 @@ class Members extends StatelessWidget {
             ),
             title: Text(people.name, style: TextStyle(fontWeight: FontWeight.bold),),
             subtitle: Text('Member from ' + people.region,),
-            trailing: Text(GetDateFormat(people.registered))
+            trailing: Text(GetDateFormat(people.registered)),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) => Profile(
+                  id: people.id,
+                  name: people.name,
+                  profile: people.profile,
+                  img: people.img,
+                  region: people.region,
+                  address: people.address,
+                  registered: people.registered,
+                  birthdate: people.birthdate,
+                  description: people.description,
+                )
+              ));
+            }
           );
         }).toList()
       ),
